@@ -75,6 +75,8 @@ public class Book {
         this.status = status;
     }
 
+    // Return a string representation of the book details
+    
     @Override
     public String toString() {
         return "Book [ID = " + bookId + ", Title = " + title + ", Author = " + author +
