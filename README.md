@@ -10,3 +10,19 @@ This Java application provides a command-line interface for librarians to manage
 - **Update Book Details:** Modify book details (e.g., change availability status, update title or author).
 - **Delete a Book Record:** Remove a book from the catalog.
 - **Exit System:** Close the application.
+
+## Directory Structure
+
+```
+DigitalLibrary/
+├── README.md
+├── src/
+│   ├── main/
+│   │   └── DigitalLibraryApp.java
+│   ├── model/
+│   │   └── Book.java
+│   └── service/
+│       └── LibraryService.java
+└── test/
+    └── LibraryServiceTest.java
+```
