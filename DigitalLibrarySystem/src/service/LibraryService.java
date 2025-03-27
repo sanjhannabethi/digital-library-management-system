@@ -43,4 +43,43 @@ public class LibraryService {
         }
         return result;
     }
+
+    // Update a book's details
+    public boolean updateBook(String bookId, String newTitle, String newAuthor, String newGenre, Book.AvailabilityStatus newStatus) {
+        Optional<Book> optBook = findBookById(bookId);
+        if(optBook.isPresent()){
+            Book book = optBook.get();
+            try {
+                if(newTitle != null && !newTitle.trim().isEmpty()){
+                    book.setTitle(newTitle);
+                }
+                if(newAuthor != null && !newAuthor.trim().isEmpty()){
+                    book.setAuthor(newAuthor);
+                }
+                if(newGenre != null){
+                    book.setGenre(newGenre);
+                }
+                if(newStatus != null){
+                    book.setStatus(newStatus);
+                }
+            } catch(IllegalArgumentException e) {
+                System.out.println("Update Error: " + e.getMessage());
+                return false;
+            }
+            return true;
+        }
+        System.out.println("Book with ID " + bookId + " not found.");
+        return false;
+    }
+
+    // Delete a book record
+    public boolean deleteBook(String bookId) {
+        Optional<Book> optBook = findBookById(bookId);
+        if(optBook.isPresent()){
+            books.remove(optBook.get());
+            return true;
+        }
+        System.out.println("Book with ID " + bookId + " not found.");
+        return false;
+    }
 }
