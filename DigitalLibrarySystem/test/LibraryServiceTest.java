@@ -1,4 +1,4 @@
-package service;
+package DigitalLibrarySystem.test;
 
 public class LibraryServiceTest {
     
